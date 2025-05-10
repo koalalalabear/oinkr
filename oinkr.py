@@ -3,8 +3,9 @@ import csv
 import datetime
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
-
-BOT_TOKEN = "7617957352:AAF3uz-PT7W_5VG201J5PF517sKVu-ev2z0"
+from dotenv import load_dotenv
+load_dotenv()
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 # In-memory log for tracking food entries
 user_logs = {}
@@ -127,6 +128,7 @@ app = ApplicationBuilder().token(BOT_TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("log", show_log))
 app.add_handler(CommandHandler("today", today_calories))
+# [WIP] app.add_handler(CommandHandler("edit_today_datetime", edit_today_datetime))
 app.add_handler(MessageHandler(filters.PHOTO, log_photo))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, log_food))
 
