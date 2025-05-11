@@ -13,3 +13,7 @@ __pycache__/
 # Virtual environments
 env/
 venv/
+
+# Google API credentials
+credentials.json
+token.pickle
