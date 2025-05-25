@@ -1,0 +1,12 @@
+# Ignore environment variables
+.env
+
+# Ignore credentials file
+oink-svc-acc-credentials.json
+
+# Python junk
+__pycache__/
+*.pyc
+
+# macOS junk
+.DS_Store
